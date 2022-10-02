@@ -60,6 +60,13 @@
     <Compile Include="Assets\Scripts\Model\Clock\AbstractClock.cs" />
     <Compile Include="Assets\Scripts\Model\Clock\GameClock.cs" />
     <Compile Include="Assets\Scripts\Model\Clock\PuppyClock.cs" />
+    <Compile Include="Assets\Scripts\Model\Types\ClockType.cs" />
+    <Compile Include="Assets\Scripts\Model\Clock\GameClockFactory.cs" />
+    <Compile Include="Assets\Scripts\Model\Clock\IClockFactory.cs" />
+    <Compile Include="Assets\Scripts\Model\Clock\PuppyClockFactory.cs" />
+    <Compile Include="Assets\Scripts\Model\Clock\IClockAbstractFactory.cs" />
+    <Compile Include="Assets\Scripts\Model\Clock\ClockAbstractFactory.cs" />
+    <Compile Include="Assets\Scripts\Core\EventBus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />

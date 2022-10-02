@@ -5,9 +5,11 @@ public class GameClock : AbstractClock
 {
   public GameClock(int time) : base(time) { }
 
-  public new void Tick() {
+  public override void Tick() {
     base.Tick();
 
-    // ToDo call GameEnd event when timer is 0
+    if (time <= 0) {
+      EventBus.GameEnd();
+    }
   }
 }

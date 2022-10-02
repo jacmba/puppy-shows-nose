@@ -54,6 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Test\Functional\SimpleTest.cs" />
+    <Compile Include="Assets\Test\Functional\ClockActionTests.cs" />
+    <Compile Include="Assets\Test\Functional\ShoppingListEventTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Test\Functional\FunctionalTestsAssembly.asmdef" />

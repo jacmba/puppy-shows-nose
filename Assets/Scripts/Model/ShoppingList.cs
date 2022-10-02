@@ -26,7 +26,7 @@ public class ShoppingList : IShoppingList {
       }
 
       ShoppingList shoppingList = new ShoppingList();
-      shoppingList.list = types.OrderBy(x => new System.Random().Next()).Take(size).ToList<ShoppingItemType>();
+      shoppingList.list = types.OrderBy(x => System.Guid.NewGuid()).Take(size).ToList<ShoppingItemType>();
       return shoppingList;
     }
   }
@@ -41,5 +41,10 @@ public class ShoppingList : IShoppingList {
 
   public void ClearItem (ShoppingItemType item) {
     list.Remove(item);
+    EventBus.ShoppingItemClear(item);
+
+    if(list.Count <= 0) {
+      EventBus.ListComplete();
+    }
   }
 }

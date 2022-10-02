@@ -5,9 +5,11 @@ public class PuppyClock : AbstractClock
 {
   public PuppyClock() : base(10) { }
 
-  public new void Tick() {
+  public override void Tick() {
     base.Tick();
 
-    // ToDo call PuppyShown event when time reaches 0
+    if (time <= 0) {
+      EventBus.PuppyShown();
+    }
   }
 }

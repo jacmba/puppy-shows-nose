@@ -17,8 +17,8 @@ public enum ShoppingItemType {
   NUTS,
 }
 
-public static class ShoppingItemTypeExtension {
-  public static string ToString (this ShoppingItemType item) {
+public static class ShoppingItemTypeExtensions {
+  public static string ToFriendlyString (this ShoppingItemType item) {
     switch (item) {
       case ShoppingItemType.MILK:
         return "Milk";

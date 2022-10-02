@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 public abstract class AbstractClock : IClock
 {
-  private int time;
+  protected int time;
 
   public AbstractClock(int time) {
     this.time = time;
   }
 
-  public void Tick() {
+  public virtual void Tick() {
     if(time > 0) {
       time--;
     }
