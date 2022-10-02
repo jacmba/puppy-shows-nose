@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 
 public class ShoppingList : IShoppingList {
   private List<ShoppingItemType> list;
 
   public class ShoppingListBuilder {
-    public ShoppingList Build (int size) {
-      ShoppingList shoppingList = new ShoppingList ();
+    private int size = 0;
 
-      for (int i = 0; i < size; i++) {
-        shoppingList.list.Add (ShoppingItemType.MILK);
+    public ShoppingListBuilder Size(int val) {
+      size = val;
+      if(size < 1) {
+        size = 1;
+      } else if(size > (int) ShoppingItemType.NUTS + 1) {
+        size = (int) ShoppingItemType.NUTS;
+      }
+      return this;
+    }
+
+    public ShoppingList Build () {
+      List<ShoppingItemType> types = new List<ShoppingItemType> ();
+
+      for (int i = 0; i <= (int) ShoppingItemType.NUTS; i++) {
+        types.Add ((ShoppingItemType) i);
       }
 
+      ShoppingList shoppingList = new ShoppingList();
+      shoppingList.list = types.OrderBy(x => new System.Random().Next()).Take(size).ToList<ShoppingItemType>();
       return shoppingList;
     }
   }
@@ -22,8 +36,10 @@ public class ShoppingList : IShoppingList {
   }
 
   public List<ShoppingItemType> GetList () {
-    return list;
+    return list.ToList();
   }
 
-  public void ClearItem (ShoppingItemType item) { }
+  public void ClearItem (ShoppingItemType item) {
+    list.Remove(item);
+  }
 }

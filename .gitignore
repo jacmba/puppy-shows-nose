@@ -3,3 +3,5 @@ Logs/
 Temp/
 UserSettings/
 .vscode/
+.vs/
+obj/
