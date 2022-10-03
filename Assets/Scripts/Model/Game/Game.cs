@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Game : IGame {
   private IOption option;
+  private IClockAbstractFactory clockAbstractFactory;
   private IClock gameClock;
   private IClock puppyClock;
   private IStateMachine fsm;
@@ -26,9 +27,9 @@ public class Game : IGame {
       Game game = new Game();
       game.option = option;
 
-      IClockAbstractFactory clockAbstractFactory = new ClockAbstractFactory(option.GetDifficulty().GetTimeLimit());
-      IClockFactory gameClockFactory = clockAbstractFactory.GetFactory(ClockType.GAME);
-      IClockFactory puppyClockFactory = clockAbstractFactory.GetFactory(ClockType.PUPPY);
+      game.clockAbstractFactory = new ClockAbstractFactory(option.GetDifficulty().GetTimeLimit());
+      IClockFactory gameClockFactory = game.clockAbstractFactory.GetFactory(ClockType.GAME);
+      IClockFactory puppyClockFactory = game.clockAbstractFactory.GetFactory(ClockType.PUPPY);
       game.gameClock = puppyClockFactory.GetClock();
       game.puppyClock = puppyClockFactory.GetClock();
 
@@ -66,5 +67,31 @@ public class Game : IGame {
 
   public int GetPuppyTime() {
     return puppyClock.GetTime();
+  }
+
+  public GameStateType GetState() {
+    var gameState = (GameState)fsm.CurrentState();
+    return gameState.GetState();
+  }
+
+  public void OnPlay() {
+    isPlaying = true;
+  }
+
+  public void OnPauseToggle() {
+    isPaused = !isPaused;
+  }
+
+  public void OnWin() {
+    isWon = true;
+  }
+
+  public void OnLose() {
+    isLost = true;
+  }
+
+  public void ResetTimer() {
+    IClockFactory factory = clockAbstractFactory.GetFactory(ClockType.PUPPY);
+    puppyClock = factory.GetClock();
   }
 }
