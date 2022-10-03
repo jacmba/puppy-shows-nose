@@ -54,8 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Model\Types\ShoppingItemType.cs" />
-    <Compile Include="Assets\Scripts\Model\ShoppingList.cs" />
-    <Compile Include="Assets\Scripts\Model\IShoppingList.cs" />
+    <Compile Include="Assets\Scripts\Model\ShoppingList\ShoppingList.cs" />
+    <Compile Include="Assets\Scripts\Model\ShoppingList\IShoppingList.cs" />
     <Compile Include="Assets\Scripts\Model\Clock\IClock.cs" />
     <Compile Include="Assets\Scripts\Model\Clock\AbstractClock.cs" />
     <Compile Include="Assets\Scripts\Model\Clock\GameClock.cs" />
@@ -73,6 +73,15 @@
     <Compile Include="Assets\Scripts\Model\State\GameState.cs" />
     <Compile Include="Assets\Scripts\Model\State\IStateMachine.cs" />
     <Compile Include="Assets\Scripts\Model\State\GameStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Model\Game\IGame.cs" />
+    <Compile Include="Assets\Scripts\Model\Game\Game.cs" />
+    <Compile Include="Assets\Scripts\Model\Types\DifficultyType.cs" />
+    <Compile Include="Assets\Scripts\Model\Options\IOption.cs" />
+    <Compile Include="Assets\Scripts\Model\Options\Option.cs" />
+    <Compile Include="Assets\Scripts\Model\Options\IDifficulty.cs" />
+    <Compile Include="Assets\Scripts\Model\Options\Difficulty.cs" />
+    <Compile Include="Assets\Scripts\Model\Options\IOptionsFactory.cs" />
+    <Compile Include="Assets\Scripts\Model\Options\OptionsFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />
