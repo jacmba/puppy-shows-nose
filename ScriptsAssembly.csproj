@@ -67,6 +67,12 @@
     <Compile Include="Assets\Scripts\Model\Clock\IClockAbstractFactory.cs" />
     <Compile Include="Assets\Scripts\Model\Clock\ClockAbstractFactory.cs" />
     <Compile Include="Assets\Scripts\Core\EventBus.cs" />
+    <Compile Include="Assets\Scripts\Model\Types\GameStateType.cs" />
+    <Compile Include="Assets\Scripts\Model\State\IState.cs" />
+    <Compile Include="Assets\Scripts\Model\State\IGameState.cs" />
+    <Compile Include="Assets\Scripts\Model\State\GameState.cs" />
+    <Compile Include="Assets\Scripts\Model\State\IStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Model\State\GameStateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />
