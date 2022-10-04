@@ -9,4 +9,5 @@ public interface IGame {
   void OnWin();
   void OnLose();
   void ResetTimer();
+  IShoppingList GetShoppingList();
 }

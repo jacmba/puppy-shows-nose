@@ -82,6 +82,12 @@
     <Compile Include="Assets\Scripts\Model\Options\Difficulty.cs" />
     <Compile Include="Assets\Scripts\Model\Options\IOptionsFactory.cs" />
     <Compile Include="Assets\Scripts\Model\Options\OptionsFactory.cs" />
+    <Compile Include="Assets\Scripts\Controller\Screen\OptionScreenController.cs" />
+    <Compile Include="Assets\Scripts\Controller\Screen\TitleScreenController.cs" />
+    <Compile Include="Assets\Scripts\Model\Types\SceneType.cs" />
+    <Compile Include="Assets\Scripts\Data\GameData.cs" />
+    <Compile Include="Assets\Scripts\Controller\Screen\GameController.cs" />
+    <Compile Include="Assets\Scripts\Controller\UI\HudController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />

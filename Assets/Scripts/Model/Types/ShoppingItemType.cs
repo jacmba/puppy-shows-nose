@@ -24,6 +24,8 @@ public static class ShoppingItemTypeExtensions {
         return "Milk";
       case ShoppingItemType.WATER:
         return "Water";
+      case ShoppingItemType.BREAD:
+        return "Bread";
       case ShoppingItemType.BREWDRINK:
         return "Brew drink";
       case ShoppingItemType.MEAT:
@@ -36,6 +38,8 @@ public static class ShoppingItemTypeExtensions {
         return "Pants";
       case ShoppingItemType.SHIRT:
         return "Shirt";
+      case ShoppingItemType.SKIRT:
+        return "Skirt";
       case ShoppingItemType.SHOES:
         return "Shoes";
       case ShoppingItemType.POPCORNS:
@@ -47,9 +51,9 @@ public static class ShoppingItemTypeExtensions {
       case ShoppingItemType.JELLY:
         return "Jelly";
       case ShoppingItemType.NUTS:
-        return "NUTS";
+        return "Nuts";
       default:
-        return "";
+        return item.ToString();
     }
   }
 }

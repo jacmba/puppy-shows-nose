@@ -13,6 +13,8 @@ public class Game : IGame {
   private bool isWon = false;
   private bool isLost = false;
 
+  private IShoppingList shoppingList;
+
   private Game() {}
 
   public class GameBuilder {
@@ -30,8 +32,13 @@ public class Game : IGame {
       game.clockAbstractFactory = new ClockAbstractFactory(option.GetDifficulty().GetTimeLimit());
       IClockFactory gameClockFactory = game.clockAbstractFactory.GetFactory(ClockType.GAME);
       IClockFactory puppyClockFactory = game.clockAbstractFactory.GetFactory(ClockType.PUPPY);
-      game.gameClock = puppyClockFactory.GetClock();
+      game.gameClock = gameClockFactory.GetClock();
       game.puppyClock = puppyClockFactory.GetClock();
+
+      var shoppingListBuilder = new ShoppingList.ShoppingListBuilder();
+      game.shoppingList = shoppingListBuilder
+        .Size(option.GetDifficulty().GetListSize())
+        .Build();
 
       game.fsm = new GameStateMachine();
 
@@ -93,5 +100,9 @@ public class Game : IGame {
   public void ResetTimer() {
     IClockFactory factory = clockAbstractFactory.GetFactory(ClockType.PUPPY);
     puppyClock = factory.GetClock();
+  }
+
+  public IShoppingList GetShoppingList() {
+    return shoppingList;
   }
 }
