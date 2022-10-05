@@ -7,6 +7,12 @@ public class GameController : MonoBehaviour {
   [SerializeField] private GameData data;
   [SerializeField] private int gameTime;
   [SerializeField] private int puppyTime;
+  [SerializeField] private int deploymentTime = 5;
+  [SerializeField] private GameObject player;
+  [SerializeField] private Transform toiletInSpawn;
+  [SerializeField] private Transform toiletOutSpawn;
+  [SerializeField] private Camera playerCam;
+  [SerializeField] private Camera toiletCam;
 
   IGame game;
 
@@ -36,6 +42,7 @@ public class GameController : MonoBehaviour {
 
     EventBus.OnListShow += OnListShow;
     EventBus.OnGameStart += OnGameStart;
+    EventBus.OnToiletEnter += OnToiletEnter;
 
     StartCoroutine(GameTick());
   }
@@ -43,6 +50,7 @@ public class GameController : MonoBehaviour {
   void OnDestroy() {
     EventBus.OnListShow -= OnListShow;
     EventBus.OnGameStart -= OnGameStart;
+    EventBus.OnToiletEnter -= OnToiletEnter;
   }
 
   // Update is called once per frame
@@ -78,5 +86,26 @@ public class GameController : MonoBehaviour {
   private void OnGameStart() {
     Debug.Log("Starting game");
     game.OnPlay();
+  }
+
+  private void OnToiletEnter() {
+    EventBus.MessageShow("Deploying puppy");
+    game.OnPauseToggle();
+    game.ResetTimer();
+    UpdateTime();
+    toiletCam.enabled = true;
+    playerCam.enabled = false;
+    player.transform.position = toiletInSpawn.position;
+    StartCoroutine(DeployPuppy());
+  }
+
+  private IEnumerator DeployPuppy() {
+    yield return new WaitForSeconds(deploymentTime);
+    player.transform.position = toiletOutSpawn.position;
+    player.transform.rotation = toiletOutSpawn.rotation;
+    playerCam.enabled = true;
+    toiletCam.enabled = false;
+    game.OnPauseToggle();
+    EventBus.ToiletExit();
   }
 }

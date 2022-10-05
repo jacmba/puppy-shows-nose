@@ -91,6 +91,9 @@
     <Compile Include="Assets\Scripts\Controller\Game\IntroController.cs" />
     <Compile Include="Assets\Scripts\Controller\Game\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Model\Types\AnimationTriggerType.cs" />
+    <Compile Include="Assets\Scripts\Model\Types\InteractionType.cs" />
+    <Compile Include="Assets\Scripts\Controller\Game\InteractionAreaController.cs" />
+    <Compile Include="Assets\Scripts\Controller\UI\InteractionTextController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />

@@ -12,6 +12,10 @@ public static class EventBus {
   public static event Action<List<string>> OnItemsUpdated;
   public static event Action OnListShow;
   public static event Action OnGameStart;
+  public static event Action OnToiletEnter;
+  public static event Action OnToiletExit;
+  public static event Action<ShoppingItemType> OnItemPick;
+  public static event Action<string> OnMessageShow;
 
   public static void GameEnd() {
     OnGameEnd?.Invoke();
@@ -47,5 +51,21 @@ public static class EventBus {
 
   public static void GameStart() {
     OnGameStart?.Invoke();
+  }
+
+  public static void ToiletEnter() {
+    OnToiletEnter?.Invoke();
+  }
+
+  public static void ToiletExit() {
+    OnToiletExit?.Invoke();
+  }
+
+  public static void ItemPick(ShoppingItemType item) {
+    OnItemPick?.Invoke(item);
+  }
+
+  public static void MessageShow(string message) {
+    OnMessageShow?.Invoke(message);
   }
 }

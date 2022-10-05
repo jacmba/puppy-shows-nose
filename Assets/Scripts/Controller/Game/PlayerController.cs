@@ -23,10 +23,20 @@ public class PlayerController : MonoBehaviour {
     play = false;
 
     EventBus.OnGameStart += OnGameStart;
+    EventBus.OnGameEnd += OnGameEnd;
+    EventBus.OnListComplete += OnGameEnd;
+    EventBus.OnPuppyShown += OnGameEnd;
+    EventBus.OnToiletEnter += OnToiletEnter;
+    EventBus.OnToiletExit += OnToiletExit;
   }
 
   void OnDestroy() {
     EventBus.OnGameStart -= OnGameStart;
+    EventBus.OnGameEnd -= OnGameEnd;
+    EventBus.OnListComplete -= OnGameEnd;
+    EventBus.OnPuppyShown -= OnGameEnd;
+    EventBus.OnToiletExit -= OnToiletExit;
+    EventBus.OnToiletEnter -= OnToiletEnter;
   }
 
   // Update is called once per frame
@@ -52,6 +62,19 @@ public class PlayerController : MonoBehaviour {
   }
 
   private void OnGameStart() {
+    play = true;
+  }
+
+  private void OnGameEnd() {
+    run = false;
+    play = false;
+  }
+
+  private void OnToiletEnter() {
+    play = false;
+  }
+
+  private void OnToiletExit() {
     play = true;
   }
 }
