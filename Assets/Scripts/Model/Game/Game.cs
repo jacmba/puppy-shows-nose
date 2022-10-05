@@ -58,13 +58,17 @@ public class Game : IGame {
     }
   }
 
-  public void Tick() {
+  public void Tick(bool updateTime) {
+    fsm.Tick();
     var state = (GameState)fsm.CurrentState();
-    if (state.GetState() == GameStateType.PLAYING) {
+    if (state.GetState() == GameStateType.PLAYING && updateTime) {
       gameClock.Tick();
       puppyClock.Tick();
     }
-    fsm.Tick();
+  }
+
+  public void Tick() {
+    Tick(false);
   }
 
   public IDifficulty GetDifficulty() {

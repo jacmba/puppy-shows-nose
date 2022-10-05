@@ -7,9 +7,12 @@ public class HudController : MonoBehaviour {
   [SerializeField] private Text gameTimeText;
   [SerializeField] private Text puppyTimeText;
   [SerializeField] private List<Text> shoppingItems;
+  [SerializeField] private Color criticalColor;
+  private Color normalColor;
 
   // Start is called before the first frame update
   void Start() {
+    normalColor = gameTimeText.color;
     EventBus.OnClocksUpdated += OnClocksUpdated;
     EventBus.OnItemsUpdated += OnItemsUpdated;
   }
@@ -22,6 +25,9 @@ public class HudController : MonoBehaviour {
   private void OnClocksUpdated(int gameClock, int puppyClock) {
     gameTimeText.text = "Time left: " + gameClock;
     puppyTimeText.text = "Time for puppy: " + puppyClock;
+
+    gameTimeText.color = gameClock <= 10 ? criticalColor : normalColor;
+    puppyTimeText.color = puppyClock <= 3 ? criticalColor : normalColor;
   }
 
   private void OnItemsUpdated(List<string> items) {

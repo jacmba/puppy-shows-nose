@@ -43,6 +43,8 @@ public class GameController : MonoBehaviour {
     EventBus.OnListShow += OnListShow;
     EventBus.OnGameStart += OnGameStart;
     EventBus.OnToiletEnter += OnToiletEnter;
+    EventBus.OnPuppyShown += OnPuppyShown;
+    EventBus.OnItemPick += OnItemPick;
 
     StartCoroutine(GameTick());
   }
@@ -51,6 +53,8 @@ public class GameController : MonoBehaviour {
     EventBus.OnListShow -= OnListShow;
     EventBus.OnGameStart -= OnGameStart;
     EventBus.OnToiletEnter -= OnToiletEnter;
+    EventBus.OnPuppyShown -= OnPuppyShown;
+    EventBus.OnItemPick -= OnItemPick;
   }
 
   // Update is called once per frame
@@ -59,9 +63,10 @@ public class GameController : MonoBehaviour {
   }
 
   private IEnumerator GameTick() {
-    while(game.GetState() != GameStateType.LOSE && game.GetState() != GameStateType.WIN) {
+    while(true) {
       yield return new WaitForSeconds(1);
-      game.Tick();
+      game.Tick(true);
+      UpdateTime();
       EventBus.ClocksUpdated(gameTime, puppyTime);
     }
   }
@@ -107,5 +112,14 @@ public class GameController : MonoBehaviour {
     toiletCam.enabled = false;
     game.OnPauseToggle();
     EventBus.ToiletExit();
+  }
+
+  private void OnPuppyShown() {
+    game.OnLose();
+  }
+
+  private void OnItemPick(ShoppingItemType item) {
+    Debug.Log("Attempting to pick " + item);
+    game.GetShoppingList().ClearItem(item);
   }
 }

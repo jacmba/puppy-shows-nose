@@ -1,5 +1,6 @@
 public interface IGame {
   void Tick();
+  void Tick(bool updateTime);
   IDifficulty GetDifficulty();
   int GetGameTime();
   int GetPuppyTime();
