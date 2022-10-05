@@ -10,6 +10,8 @@ public static class EventBus {
   public static event Action<GameStateType> OnGameStateChanged;
   public static event Action<int, int> OnClocksUpdated;
   public static event Action<List<string>> OnItemsUpdated;
+  public static event Action OnListShow;
+  public static event Action OnGameStart;
 
   public static void GameEnd() {
     OnGameEnd?.Invoke();
@@ -37,5 +39,13 @@ public static class EventBus {
 
   public static void ItemsUpdated(List<string> items) {
     OnItemsUpdated?.Invoke(items);
+  }
+
+  public static void ListShow() {
+    OnListShow?.Invoke();
+  }
+
+  public static void GameStart() {
+    OnGameStart?.Invoke();
   }
 }

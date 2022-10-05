@@ -59,8 +59,11 @@ public class Game : IGame {
   }
 
   public void Tick() {
-    gameClock.Tick();
-    puppyClock.Tick();
+    var state = (GameState)fsm.CurrentState();
+    if (state.GetState() == GameStateType.PLAYING) {
+      gameClock.Tick();
+      puppyClock.Tick();
+    }
     fsm.Tick();
   }
 

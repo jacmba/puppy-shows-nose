@@ -86,8 +86,11 @@
     <Compile Include="Assets\Scripts\Controller\Screen\TitleScreenController.cs" />
     <Compile Include="Assets\Scripts\Model\Types\SceneType.cs" />
     <Compile Include="Assets\Scripts\Data\GameData.cs" />
-    <Compile Include="Assets\Scripts\Controller\Screen\GameController.cs" />
+    <Compile Include="Assets\Scripts\Controller\Game\GameController.cs" />
     <Compile Include="Assets\Scripts\Controller\UI\HudController.cs" />
+    <Compile Include="Assets\Scripts\Controller\Game\IntroController.cs" />
+    <Compile Include="Assets\Scripts\Controller\Game\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Model\Types\AnimationTriggerType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />

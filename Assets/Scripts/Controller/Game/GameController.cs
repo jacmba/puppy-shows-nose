@@ -34,7 +34,15 @@ public class GameController : MonoBehaviour {
     EventBus.ClocksUpdated(gameTime, puppyTime);
     UpdateItems();
 
+    EventBus.OnListShow += OnListShow;
+    EventBus.OnGameStart += OnGameStart;
+
     StartCoroutine(GameTick());
+  }
+
+  void OnDestroy() {
+    EventBus.OnListShow -= OnListShow;
+    EventBus.OnGameStart -= OnGameStart;
   }
 
   // Update is called once per frame
@@ -61,5 +69,14 @@ public class GameController : MonoBehaviour {
       .ToList<string>();
 
     EventBus.ItemsUpdated(items);
+  }
+
+  private void OnListShow() {
+    UpdateItems();
+  }
+
+  private void OnGameStart() {
+    Debug.Log("Starting game");
+    game.OnPlay();
   }
 }
