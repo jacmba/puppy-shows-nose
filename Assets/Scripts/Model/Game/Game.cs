@@ -61,9 +61,12 @@ public class Game : IGame {
   public void Tick(bool updateTime) {
     fsm.Tick();
     var state = (GameState)fsm.CurrentState();
-    if (state.GetState() == GameStateType.PLAYING && updateTime) {
+    if ((state.GetState() == GameStateType.PLAYING || state.GetState() == GameStateType.PAUSED) && updateTime) {
       gameClock.Tick();
-      puppyClock.Tick();
+
+      if (state.GetState() != GameStateType.PAUSED) {
+        puppyClock.Tick();
+      }
     }
   }
 

@@ -40,8 +40,10 @@ public class ShoppingList : IShoppingList {
   }
 
   public void ClearItem (ShoppingItemType item) {
-    list.Remove(item);
-    EventBus.ShoppingItemClear(item);
+    var removed = list.Remove(item);
+    if (removed) {
+      EventBus.ShoppingItemClear(item);
+    }
 
     if(list.Count <= 0) {
       EventBus.ListComplete();

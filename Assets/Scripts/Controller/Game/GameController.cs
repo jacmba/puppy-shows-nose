@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour {
     EventBus.OnToiletEnter += OnToiletEnter;
     EventBus.OnPuppyShown += OnPuppyShown;
     EventBus.OnItemPick += OnItemPick;
+    EventBus.OnShoppingItemClear += OnShoppingItemClear;
 
     StartCoroutine(GameTick());
   }
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour {
     EventBus.OnToiletEnter -= OnToiletEnter;
     EventBus.OnPuppyShown -= OnPuppyShown;
     EventBus.OnItemPick -= OnItemPick;
+    EventBus.OnShoppingItemClear -= OnShoppingItemClear;
   }
 
   // Update is called once per frame
@@ -121,5 +123,11 @@ public class GameController : MonoBehaviour {
   private void OnItemPick(ShoppingItemType item) {
     Debug.Log("Attempting to pick " + item);
     game.GetShoppingList().ClearItem(item);
+    UpdateItems();
+  }
+
+  private void OnShoppingItemClear(ShoppingItemType item) {
+    Debug.Log("Cleared item " + item);
+    EventBus.MessageShow("You picked " + item.ToFriendlyString());
   }
 }

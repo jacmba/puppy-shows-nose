@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
   void Update() {
     animator.SetBool(AnimationTriggerType.RUN.ToString(), run);
 
-    if(!play) {
+    if (!play) {
       return;
     }
 
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 
   void FixedUpdate() {
     if (play) {
+      body.rotation = transform.rotation;
       transform.Translate(v * Vector3.forward * runSpeed * Time.deltaTime);
     }
   }
