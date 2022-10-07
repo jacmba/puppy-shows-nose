@@ -12001,6 +12001,7 @@ GameObject:
   - component: {fileID: 987090418}
   - component: {fileID: 987090420}
   - component: {fileID: 987090419}
+  - component: {fileID: 987090421}
   m_Layer: 5
   m_Name: ShoppingListPaper
   m_TagString: Untagged
@@ -12075,6 +12076,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987090417}
   m_CullTransparentMesh: 1
+--- !u!95 &987090421
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987090417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4deebc62e50bd454798def3a2393755a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &988603635
 GameObject:
   m_ObjectHideFlags: 0
@@ -23773,7 +23793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52a859004358c14a8d58c8556f2641e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationSeconds: 3
+  durationSeconds: 5
 --- !u!1001 &1807278622
 PrefabInstance:
   m_ObjectHideFlags: 0
