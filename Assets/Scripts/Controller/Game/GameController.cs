@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class GameController : MonoBehaviour {
@@ -8,6 +9,7 @@ public class GameController : MonoBehaviour {
   [SerializeField] private int gameTime;
   [SerializeField] private int puppyTime;
   [SerializeField] private int deploymentTime = 5;
+  [SerializeField] private int returnToTitleTime = 7;
   [SerializeField] private GameObject player;
   [SerializeField] private Transform toiletInSpawn;
   [SerializeField] private Transform toiletOutSpawn;
@@ -46,6 +48,8 @@ public class GameController : MonoBehaviour {
     EventBus.OnPuppyShown += OnPuppyShown;
     EventBus.OnItemPick += OnItemPick;
     EventBus.OnShoppingItemClear += OnShoppingItemClear;
+    EventBus.OnListComplete += OnListComplete;
+    EventBus.OnGameEnd += OnGameEnd;
 
     StartCoroutine(GameTick());
   }
@@ -57,6 +61,8 @@ public class GameController : MonoBehaviour {
     EventBus.OnPuppyShown -= OnPuppyShown;
     EventBus.OnItemPick -= OnItemPick;
     EventBus.OnShoppingItemClear -= OnShoppingItemClear;
+    EventBus.OnListComplete -= OnListComplete;
+    EventBus.OnGameEnd -= OnGameEnd;
   }
 
   // Update is called once per frame
@@ -118,6 +124,8 @@ public class GameController : MonoBehaviour {
 
   private void OnPuppyShown() {
     game.OnLose();
+    EventBus.MessageShow("Puppy nose shown!");
+    StartCoroutine(ReturnToTitle());
   }
 
   private void OnItemPick(ShoppingItemType item) {
@@ -129,5 +137,22 @@ public class GameController : MonoBehaviour {
   private void OnShoppingItemClear(ShoppingItemType item) {
     Debug.Log("Cleared item " + item);
     EventBus.MessageShow("You picked " + item.ToFriendlyString());
+  }
+
+  private void OnListComplete() {
+    game.OnWin();
+    EventBus.MessageShow("Shopping list cleared!");
+    StartCoroutine(ReturnToTitle());
+  }
+
+  private void OnGameEnd() {
+    game.OnLose();
+    EventBus.MessageShow("Time over!");
+    StartCoroutine(ReturnToTitle());
+  }
+
+  private IEnumerator ReturnToTitle() {
+    yield return new WaitForSeconds(returnToTitleTime);
+    SceneManager.LoadScene((int)SceneType.TITLE);
   }
 }
