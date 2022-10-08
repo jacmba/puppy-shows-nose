@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Model\Types\InteractionType.cs" />
     <Compile Include="Assets\Scripts\Controller\Game\InteractionAreaController.cs" />
     <Compile Include="Assets\Scripts\Controller\UI\InteractionTextController.cs" />
+    <Compile Include="Assets\Scripts\Controller\Sound\SoundController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ScriptsAssembly.asmdef" />

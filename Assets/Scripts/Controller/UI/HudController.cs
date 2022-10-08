@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HudController : MonoBehaviour {
   [SerializeField] private Text gameTimeText;
   [SerializeField] private Text puppyTimeText;
+  [SerializeField] private Animator paperAnimator;
   [SerializeField] private List<Text> shoppingItems;
   [SerializeField] private Color criticalColor;
   private Color normalColor;
@@ -51,6 +52,7 @@ public class HudController : MonoBehaviour {
 
   private void OnWin() {
     winText.SetActive(true);
+    paperAnimator.SetTrigger("Hide");
   }
 
   private void OnLose() {

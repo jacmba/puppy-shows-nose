@@ -16,10 +16,12 @@ public class GameController : MonoBehaviour {
   [SerializeField] private Camera playerCam;
   [SerializeField] private Camera toiletCam;
 
-  IGame game;
+  private AudioSource audioSource;
+  private IGame game;
 
   // Start is called before the first frame update
   void Start() {
+    audioSource = GetComponent<AudioSource>();
     var difficultyBuilder = new Difficulty.DifficultyBuilder();
     var optionBuilder = new Option.OptionBuilder();
     var gameBuilder = new Game.GameBuilder();
@@ -99,6 +101,7 @@ public class GameController : MonoBehaviour {
   private void OnGameStart() {
     Debug.Log("Starting game");
     game.OnPlay();
+    audioSource.Play();
   }
 
   private void OnToiletEnter() {
@@ -114,18 +117,21 @@ public class GameController : MonoBehaviour {
 
   private IEnumerator DeployPuppy() {
     yield return new WaitForSeconds(deploymentTime);
-    player.transform.position = toiletOutSpawn.position;
-    player.transform.rotation = toiletOutSpawn.rotation;
-    playerCam.enabled = true;
-    toiletCam.enabled = false;
-    game.OnPauseToggle();
-    EventBus.ToiletExit();
+    if (game.GetState() == GameStateType.PAUSED) {
+      player.transform.position = toiletOutSpawn.position;
+      player.transform.rotation = toiletOutSpawn.rotation;
+      playerCam.enabled = true;
+      toiletCam.enabled = false;
+      game.OnPauseToggle();
+      EventBus.ToiletExit();
+    }
   }
 
   private void OnPuppyShown() {
     game.OnLose();
     EventBus.MessageShow("Puppy nose shown!");
     StartCoroutine(ReturnToTitle());
+    audioSource.Stop();
   }
 
   private void OnItemPick(ShoppingItemType item) {
@@ -143,12 +149,14 @@ public class GameController : MonoBehaviour {
     game.OnWin();
     EventBus.MessageShow("Shopping list cleared!");
     StartCoroutine(ReturnToTitle());
+    audioSource.Stop();
   }
 
   private void OnGameEnd() {
     game.OnLose();
     EventBus.MessageShow("Time over!");
     StartCoroutine(ReturnToTitle());
+    audioSource.Stop();
   }
 
   private IEnumerator ReturnToTitle() {
