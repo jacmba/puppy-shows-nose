@@ -53,10 +53,10 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Test\Unit\ShoppingListTests.cs" />
-    <Compile Include="Assets\Test\Unit\Simpletest.cs" />
     <Compile Include="Assets\Test\Unit\ClockTests.cs" />
+    <Compile Include="Assets\Test\Unit\ShoppingListTests.cs" />
     <Compile Include="Assets\Test\Unit\GameStateTests.cs" />
+    <Compile Include="Assets\Test\Unit\Simpletest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Test\Unit\UnitTestsAssembly.asmdef" />

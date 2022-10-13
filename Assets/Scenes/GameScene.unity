@@ -25076,6 +25076,9 @@ MonoBehaviour:
   toiletOutSpawn: {fileID: 1965436129}
   playerCam: {fileID: 1162439025}
   toiletCam: {fileID: 1259657329}
+  gameClip: {fileID: 8300000, guid: 851721fe11d57774387fa73b0a40df8c, type: 3}
+  winClip: {fileID: 8300000, guid: 7a2ca600f1fa3224fbe54bc856212c54, type: 3}
+  loseClip: {fileID: 8300000, guid: 06b9e7d86ad3c9344a854d58b447d44e, type: 3}
 --- !u!114 &1853603039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25107,8 +25110,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 3e657db7d0456014fa88d88b4f307701, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5141c5deaaf2631419eac3b2b93c665b, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 388bf0cbd919f134c873c66ab03b052a, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

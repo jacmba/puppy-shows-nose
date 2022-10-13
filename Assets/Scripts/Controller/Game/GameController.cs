@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour {
   [SerializeField] private Transform toiletOutSpawn;
   [SerializeField] private Camera playerCam;
   [SerializeField] private Camera toiletCam;
+  [SerializeField] private AudioClip gameClip;
+  [SerializeField] private AudioClip winClip;
+  [SerializeField] private AudioClip loseClip;
 
   private AudioSource audioSource;
   private IGame game;
@@ -101,6 +104,8 @@ public class GameController : MonoBehaviour {
   private void OnGameStart() {
     Debug.Log("Starting game");
     game.OnPlay();
+    audioSource.Stop();
+    audioSource.clip = gameClip;
     audioSource.Play();
   }
 
@@ -132,6 +137,9 @@ public class GameController : MonoBehaviour {
     EventBus.MessageShow("Puppy nose shown!");
     StartCoroutine(ReturnToTitle());
     audioSource.Stop();
+    audioSource.loop = false;
+    audioSource.clip = loseClip;
+    audioSource.Play();
   }
 
   private void OnItemPick(ShoppingItemType item) {
@@ -150,6 +158,9 @@ public class GameController : MonoBehaviour {
     EventBus.MessageShow("Shopping list cleared!");
     StartCoroutine(ReturnToTitle());
     audioSource.Stop();
+    audioSource.loop = false;
+    audioSource.clip = winClip;
+    audioSource.Play();
   }
 
   private void OnGameEnd() {
@@ -157,6 +168,9 @@ public class GameController : MonoBehaviour {
     EventBus.MessageShow("Time over!");
     StartCoroutine(ReturnToTitle());
     audioSource.Stop();
+    audioSource.loop = false;
+    audioSource.clip = loseClip;
+    audioSource.Play();
   }
 
   private IEnumerator ReturnToTitle() {

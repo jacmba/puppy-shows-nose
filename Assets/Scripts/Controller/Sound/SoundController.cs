@@ -7,7 +7,7 @@ public class SoundController : MonoBehaviour {
 
   private AudioSource source;
 
-  void Start() {
+  void Awake() {
     source = GetComponent<AudioSource>();
     EventBus.OnShoppingItemClear += OnItemPick;
   }
@@ -17,6 +17,7 @@ public class SoundController : MonoBehaviour {
   }
 
   private void OnItemPick(ShoppingItemType item) {
-    source.PlayOneShot(itemSound);
+    source.clip = itemSound;
+    source.Play();
   }
 }
