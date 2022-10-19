@@ -4524,6 +4524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSound: {fileID: 8300000, guid: 493f93bb1c398dd48ad6212eb9950087, type: 3}
+  mascletaSound: {fileID: 8300000, guid: 424d3ea2f796d6c43a00c46cfbac5629, type: 3}
 --- !u!1 &378748626
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class OptionScreenController : MonoBehaviour {
   private bool canPress;
   private List<IOption> options;
   private byte optionIndex;
+  private AudioSource audiosource;
 
   // Start is called before the first frame update
   void Start() {
@@ -22,6 +23,8 @@ public class OptionScreenController : MonoBehaviour {
 
     IOptionsFactory optionsFactory = new OptionsFactory();
     options = optionsFactory.GetOptions();
+
+    audiosource = GetComponent<AudioSource>();
 
     StartCoroutine(Init());
   }
@@ -42,11 +45,13 @@ public class OptionScreenController : MonoBehaviour {
     if(canPress && Input.GetAxis("Horizontal") < -.1f && optionIndex > 0) {
       canPress = false;
       optionIndex--;
+      audiosource.Play();
     }
 
     if(canPress && Input.GetAxis("Horizontal") > .1f && optionIndex < options.Count - 1) {
       canPress = false;
       optionIndex++;
+      audiosource.Play();
     }
 
     if(canPress && Input.GetAxis("Fire1") > .1f) {
