@@ -8,7 +8,7 @@ public class SoundController : MonoBehaviour {
 
   private AudioSource source;
 
-  void Awake() {
+  void Start() {
     source = GetComponent<AudioSource>();
     EventBus.OnShoppingItemClear += OnItemPick;
     EventBus.OnToiletEnter += OnMascleta;
@@ -16,7 +16,7 @@ public class SoundController : MonoBehaviour {
   }
 
   void OnDestroy() {
-    EventBus.OnItemPick -= OnItemPick;
+    EventBus.OnShoppingItemClear -= OnItemPick;
     EventBus.OnToiletEnter -= OnMascleta;
     EventBus.OnPuppyShown -= OnMascleta;
   }

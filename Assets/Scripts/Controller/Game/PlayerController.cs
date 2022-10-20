@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 
   private Animator animator;
   private Rigidbody body;
+  private ParticleSystem mascletaParticles;
   private bool run;
   private bool play;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
   void Start() {
     animator = GetComponent<Animator>();
     body = GetComponent<Rigidbody>();
+    mascletaParticles = GetComponentInChildren<ParticleSystem>();
 
     run = false;
     play = false;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     EventBus.OnGameStart += OnGameStart;
     EventBus.OnGameEnd += OnGameEnd;
     EventBus.OnListComplete += OnGameEnd;
-    EventBus.OnPuppyShown += OnGameEnd;
+    EventBus.OnPuppyShown += OnPuppyShown;
     EventBus.OnToiletEnter += OnToiletEnter;
     EventBus.OnToiletExit += OnToiletExit;
   }
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     EventBus.OnGameStart -= OnGameStart;
     EventBus.OnGameEnd -= OnGameEnd;
     EventBus.OnListComplete -= OnGameEnd;
-    EventBus.OnPuppyShown -= OnGameEnd;
+    EventBus.OnPuppyShown -= OnPuppyShown;
     EventBus.OnToiletExit -= OnToiletExit;
     EventBus.OnToiletEnter -= OnToiletEnter;
   }
@@ -66,6 +68,11 @@ public class PlayerController : MonoBehaviour {
     play = true;
   }
 
+  private void OnPuppyShown() {
+    OnGameEnd();
+    mascletaParticles.Play();
+  }
+
   private void OnGameEnd() {
     run = false;
     play = false;
@@ -73,9 +80,11 @@ public class PlayerController : MonoBehaviour {
 
   private void OnToiletEnter() {
     play = false;
+    mascletaParticles.Play();
   }
 
   private void OnToiletExit() {
     play = true;
+    mascletaParticles.Stop();
   }
 }
