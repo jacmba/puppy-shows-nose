@@ -882,7 +882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 85015405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Invisible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 107588952}
   - component: {fileID: 107588951}
   - component: {fileID: 107588950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1679,6 +1679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToiletSign
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de36b6542f0e91145a9060da1c148f35, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de36b6542f0e91145a9060da1c148f35, type: 3}
 --- !u!4 &136329977 stripped
@@ -1955,13 +1959,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 247b2ce44eefd794d8d6fe18a465aa51, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 247b2ce44eefd794d8d6fe18a465aa51, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a454ebb142a280043889ee7c504c5ce0, type: 2}
+    - target: {fileID: -565932379887854278, guid: 247b2ce44eefd794d8d6fe18a465aa51, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 247b2ce44eefd794d8d6fe18a465aa51, type: 3}
       propertyPath: m_Name
       value: Kebap
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 247b2ce44eefd794d8d6fe18a465aa51, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247b2ce44eefd794d8d6fe18a465aa51, type: 3}
@@ -2794,6 +2810,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a23a2608e06e09b4fba8bd8faf8bc457, type: 3}
       propertyPath: m_Name
       value: DonerSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a23a2608e06e09b4fba8bd8faf8bc457, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a23a2608e06e09b4fba8bd8faf8bc457, type: 3}
@@ -5200,7 +5220,7 @@ GameObject:
   - component: {fileID: 476435590}
   - component: {fileID: 476435589}
   - component: {fileID: 476435588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5529,7 +5549,7 @@ GameObject:
   - component: {fileID: 491043583}
   - component: {fileID: 491043582}
   - component: {fileID: 491043581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5561,8 +5581,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.23, y: 1, z: 1.09}
+  m_Center: {x: 0.42, y: 0, z: 0}
 --- !u!23 &491043582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6604,7 +6624,7 @@ GameObject:
   - component: {fileID: 571510842}
   - component: {fileID: 571510841}
   - component: {fileID: 571510840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8479,7 +8499,7 @@ GameObject:
   - component: {fileID: 746514346}
   - component: {fileID: 746514345}
   - component: {fileID: 746514344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9193,7 +9213,7 @@ GameObject:
   - component: {fileID: 766023602}
   - component: {fileID: 766023601}
   - component: {fileID: 766023600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11876,7 +11896,7 @@ GameObject:
   - component: {fileID: 976501326}
   - component: {fileID: 976501325}
   - component: {fileID: 976501324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11908,8 +11928,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1.15}
+  m_Center: {x: -0.34, y: 0, z: 0}
 --- !u!23 &976501325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12499,6 +12519,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6d967f8bc5dd5404b9e547b775b4a97c, type: 3}
       propertyPath: m_Name
       value: MallSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d967f8bc5dd5404b9e547b775b4a97c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d967f8bc5dd5404b9e547b775b4a97c, type: 3}
@@ -13172,7 +13196,7 @@ GameObject:
   - component: {fileID: 1065576182}
   - component: {fileID: 1065576181}
   - component: {fileID: 1065576180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16980,7 +17004,7 @@ GameObject:
   - component: {fileID: 1305978647}
   - component: {fileID: 1305978650}
   - component: {fileID: 1305978648}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17260,6 +17284,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c8f94b1df8b1d84b9aedd30d629fb1b, type: 3}
       propertyPath: m_Name
       value: SupermarketSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c8f94b1df8b1d84b9aedd30d629fb1b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8f94b1df8b1d84b9aedd30d629fb1b, type: 3}
@@ -17593,7 +17621,7 @@ GameObject:
   - component: {fileID: 1323703904}
   - component: {fileID: 1323703903}
   - component: {fileID: 1323703902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18573,7 +18601,7 @@ GameObject:
   - component: {fileID: 1410622167}
   - component: {fileID: 1410622166}
   - component: {fileID: 1410622165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18605,8 +18633,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.45, y: 1, z: 1.06}
+  m_Center: {x: -0.6, y: 0, z: 0}
 --- !u!23 &1410622166
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18876,7 +18904,7 @@ GameObject:
   - component: {fileID: 1431754160}
   - component: {fileID: 1431754163}
   - component: {fileID: 1431754161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28149,7 +28177,7 @@ GameObject:
   - component: {fileID: 1751426266}
   - component: {fileID: 1751426265}
   - component: {fileID: 1751426264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29115,6 +29143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChuchesSign
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5f3d9f1afed1d44e84ec939d8d23343, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5f3d9f1afed1d44e84ec939d8d23343, type: 3}
 --- !u!4 &1826201931 stripped
@@ -29133,7 +29165,7 @@ GameObject:
   - component: {fileID: 1827540150}
   - component: {fileID: 1827540153}
   - component: {fileID: 1827540151}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29762,7 +29794,7 @@ GameObject:
   - component: {fileID: 1836986326}
   - component: {fileID: 1836986325}
   - component: {fileID: 1836986324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30111,7 +30143,7 @@ GameObject:
   - component: {fileID: 1865028138}
   - component: {fileID: 1865028137}
   - component: {fileID: 1865028136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30143,7 +30175,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1.07}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1865028137
 MeshRenderer:
@@ -30744,7 +30776,7 @@ GameObject:
   - component: {fileID: 1891576451}
   - component: {fileID: 1891576450}
   - component: {fileID: 1891576449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31255,7 +31287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938177329}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32045,6 +32077,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9f8b7584a483f254b8726bf83fa5ffb8, type: 3}
       propertyPath: m_Name
       value: FashionSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f8b7584a483f254b8726bf83fa5ffb8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8b7584a483f254b8726bf83fa5ffb8, type: 3}
